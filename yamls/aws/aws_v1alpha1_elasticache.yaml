@@ -1,30 +1,24 @@
 apiVersion: aws.boundless.software/v1alpha1
 kind: Elasticache
 metadata:
-  labels:
-    app.kubernetes.io/name: elasticache
-    app.kubernetes.io/instance: elasticache-sample
-    app.kubernetes.io/part-of: switchblade
-    app.kubernetes.io/managed-by: kustomize
-    app.kubernetes.io/created-by: switchblade
-  name: elasticache-sample11
+  name: example-elasticache
 spec:
   provider:
     region: us-east-1
   subnetGroup:
-    name: staging-private11
+    name: example-subnetgroup
     subnetIds:
-      - subnet-089003c015f77ce86
-      - subnet-0782be6de0f76a50f
+      - <subnetid1>
+      - <subnetid2>
   redis:
     availabilityZones:
       - us-east-1a
       - us-east-1b
-    name: redis-staging11
+    name: example-redis
     nodeType: cache.r7g.large
     replicas: 2
     securityGroupIds:
-      - sg-0eec090fc5c7c187d
-    subnetGroupName: staging-private11
+      - <sgid>
+    subnetGroupName: <subnetgroupname>
     tags:
-      test: this1
+      key: value

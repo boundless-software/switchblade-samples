@@ -1,7 +1,7 @@
 apiVersion: aws.boundless.software/v1alpha1
 kind: Rds
 metadata:
-  name: rds-sample
+  name: example-rds
 spec:
   provider:
     region: us-east-1
@@ -13,9 +13,9 @@ spec:
         region: us-east-2
       subnetGroup:
         subnets:
-          - subnet-e431248c
-          - subnet-41eb410d
-          - subnet-059ad97f
+          - <subnetid1>
+          - <subnetid2>
+          - <subnetid3>
       parameterGroup:
         parameters:
           # aurora_disable_hash_join: "1"
@@ -25,7 +25,7 @@ spec:
         something: one
         something: two
         something: three
-      password: Password123!
+      password: <password>
       engine: aurora-mysql
       backupRetentionPeriod: 5
       availabilityZones:
@@ -40,9 +40,9 @@ spec:
     #     region: us-east-1
     #   subnetGroup:
     #     subnets:
-    #       - subnet-e0422cde
-    #       - subnet-2a776b25
-    #       - subnet-ea5a7db6
+    #       - <subnetid1>
+    #       - <subnetid2>
+    #       - <subnetid3>
     #   parameterGroup:
     #     # parameters:
     #     #   aurora_disable_hash_join: "0"

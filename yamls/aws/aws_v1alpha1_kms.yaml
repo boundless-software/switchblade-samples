@@ -1,26 +1,26 @@
 apiVersion: aws.boundless.software/v1alpha1
 kind: Kms
 metadata:
-  name: workload
+  name: example-kms
 spec:
   provider:
     region: us-east-1
   aliases:
-    - workload
-  description: test key
+    - example-alias
+  description: example key
   policy:
     Statement:
       - Sid: Allow administration of the key
         Effect: Allow
         Principal:
-          AWS: "arn:aws:iam::818674127672:root"
+          AWS: "arn:aws:iam::<id>:root"
         Action:
           - kms:*
         Resource: '*'
       - Sid: Allow use of the key
         Effect: Allow
         Principal:
-          AWS: "arn:aws:iam::818674127672:root"
+          AWS: "arn:aws:iam::<id>:root"
         Action:
           - kms:Encrypt
           - kms:Decrypt

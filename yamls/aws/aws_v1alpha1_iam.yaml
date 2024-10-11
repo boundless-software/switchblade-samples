@@ -1,14 +1,14 @@
 apiVersion: aws.boundless.software/v1alpha1
 kind: Iam
 metadata:
-  name: create-demo
+  name: example-iam
 spec:
   provider:
     region: us-east-1
   role:
-    name: create-demo
+    name: example-role
     policy:
-      name: test
+      name: example-policy
       Statement:
         - Action:
             - iam:GetAccountPasswordPolicy
@@ -25,17 +25,10 @@ spec:
           Effect: Allow
           Principal:
             Service: "s3.amazonaws.com"
-
-
-
-
-
-
-
   # user:
-  #   name: switchuser
+  #   name: example-user
   #   policy:
-  #     name: test
+  #     name: example-policy
   #     Statement:
   #       - Action:
   #           - events:*
@@ -44,31 +37,28 @@ spec:
   #           - "*"
   #   policyArns:
   #     - arn:aws:iam::aws:policy/AdministratorAccess
-
   # oidcProvider:
-  #   url: https://oidc.eks.us-east-1.amazonaws.com/id/44680B20B530165843E6F853F34F9762
+  #   url: https://oidc.eks.us-east-1.amazonaws.com/id/<oidc-provider-id>
   #   clientIdList:
   #     - "sts.amazonaws.com"
   #   thumbprintList:
-  #     - 9e99a48a9960b14926bb7f3b02e22da2b0ab7280
+  #     - <thumbprint>
   # policy:
-  #   name: switchblade-test
+  #   name: example-policy
   #   Statement:
   #     - Action:
   #         - s3:*
   #       Effect: Allow
   #       Resource: "*"
-
-
   # userGroup:
-  #   name: switchgroup
+  #   name: example-group
   #   users:
-  #     - switchuser
+  #     - example-user
   #   policyArns:
   #     # - arn:aws:iam::aws:policy/AdministratorAccess
   #     - arn:aws:iam::aws:policy/AmazonGlacierReadOnlyAccess
   #   policy:
-  #     name: test
+  #     name: example-policy
   #     Statement:
   #       - Action:
   #           - iam:GetAccountPasswordPolicy

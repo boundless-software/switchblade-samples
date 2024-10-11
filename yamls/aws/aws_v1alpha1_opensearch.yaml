@@ -1,17 +1,12 @@
 apiVersion: aws.boundless.software/v1alpha1
 kind: OpenSearch
 metadata:
-  name: opensearch-sample
-  annotations:
-    opensearch.aws.boundless.software/import.opensearch.collection.name: name7
-    opensearch.aws.boundless.software/import.opensearch.encryptionpolicy.name: name7
-    opensearch.aws.boundless.software/import.opensearch.networkpolicy.name: name7
-    opensearch.aws.boundless.software/import.opensearch.accesspolicy.name: name7
+  name: example-opensearch
 spec:
   provider:
     region: us-east-1
   # collection:
-  #   name: name7
+  #   name: example-collection
   #   type: VECTORSEARCH
   #   networkPolicy:
   #     - rules:
@@ -20,29 +15,28 @@ spec:
   #             - tst
   #         - resourceType: collection
   #           resources:
-  #             - name7
+  #             - example-collection
   #   accessPolicy:
   #     - principals:
-  #         - arn:aws:iam::818674127672:role/org-admin
+  #         - arn:aws:iam::<accountid>:role/<rolename>
   #       rules:
   #         - resourceType: collection
   #           permissions:
   #             - aoss:DeleteCollectionItems
   #           resources:
-  #             - name7
+  #             - example-collection
   #   encryptionPolicy:
-  #     # kmsKeyArn: arn:aws:kms:us-east-1:818674127672:key/b4543d4d-84a7-465f-b8ff-16721fa10f29
+  #     # kmsKeyArn: arn:aws:kms:<region>:<accountid>:key/<keyid>
   #     rules:
   #       - resourceType: collection
   #         resources:
-  #           - name7
-  #           - test
-
+  #           - example-collection
+  #           - example-collection2
   # domain:
-  #   name: kurtosis-opensearch2
-  #   vpcId: vpc-0af6dca97ac881d3a
+  #   name: example-opensearch
+  #   vpcId: <vpcid>
   #   volumeSize: 100
-  #   iamArn: arn:aws:iam::818674127672:role/org-admin
+  #   iamArn: arn:aws:iam::<accountid>:role/<rolename>
   #   clusterConfig:
   #     instanceType: r6g.large.search
   #     instanceCount: 2
@@ -50,6 +44,6 @@ spec:
   #     masterNodeType: m6g.large.search
   #   vpcConfig:
   #     subnetIds:
-  #       - subnet-0127e31fd3eda2cb7
+  #       - <subnetid1>
   #     securityGroupIds:
-  #       - sg-0b79d8f04392685b1
+  #       - <sgid>

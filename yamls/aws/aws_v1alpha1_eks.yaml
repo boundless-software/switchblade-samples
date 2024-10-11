@@ -1,7 +1,7 @@
 apiVersion: aws.boundless.software/v1alpha1
 kind: Eks
 metadata:
-  name: workload
+  name: example-eks
 spec:
   provider:
     region: us-east-1
@@ -12,12 +12,12 @@ spec:
     logTypes:
       - scheduler
     subnetIds:
-      - subnet-00b316504ca73dcc0
-      - subnet-0e2a96996f31c50f1
-      - subnet-0ca4f9f7eeee54a5d
-      - subnet-07a8bc50f5efb7409
-      - subnet-0a0986263559705ee
-      - subnet-0ab73d9ca032e8acb
+      - <subnetid1>
+      - <subnetid2>
+      - <subnetid3>    
+      - <subnetid4>
+      - <subnetid5>
+      - <subnetid6>
     version: "1.30"
     nodeGroups:
       critical:
@@ -39,8 +39,8 @@ spec:
           maxSize: 2
           minSize: 1
         subnets:
-          - subnet-00b316504ca73dcc0
-          - subnet-0e2a96996f31c50f1
-          - subnet-0ab73d9ca032e8acb
+          - <subnetid1>
+          - <subnetid2>
+          - <subnetid3>
         version: "1.30"
 

@@ -1,78 +1,15 @@
 apiVersion: aws.boundless.software/v1alpha1
 kind: Lambda
 metadata:
-  name: lambda-sample
-<<<<<<< HEAD
-  # annotations:
-  #   lambda.aws.boundless.software/import.lambda.arn: arn:aws:lambda:us-east-1:818674127672:function:test-akhil-manual
-=======
->>>>>>> lambda create/update/import/delete
+  name: example-lambda
 spec:
   provider:
     region: us-east-1
   runtime: "nodejs14.x"
   architecture: "x86_64"
-  role: "arn:aws:iam::818674127672:role/akhil-lambda-role"
+  role: "arn:aws:iam::<account-id>:role/example-lambda-role"
   handler: "index.handler"
   code:
-<<<<<<< HEAD
-   s3: 
-    bucket: switchblade-state
-    key: lambda/function.zip
-  git:
-    repo: "git@github.com:akhil-boundless/test-repo.git"
-    branch: "akhil"
-    sshKey: |
-      -----BEGIN OPENSSH PRIVATE KEY-----
-      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
-      -----END OPENSSH PRIVATE KEY-----    
-    sshUserName: "git"
-  description: "This is a test lambda function"
-  timeout: 10 # Time in seconds
-  memorySize: 200 # Memory size in MB
-  publish: true # Set to true to publish the first version of the function during creation
-  environment:
-    variables:
-      key1: "value1"
-      key2: "value2"
-  ephemeralStorage: 
-    size: 512
-=======
     s3Bucket: switchblade-state
     s3Key: lambda/function.zip
   description: "This is a test lambda function"
@@ -83,6 +20,5 @@ spec:
     Variables:
       key1: "value1"
       key2: "value2"
->>>>>>> lambda create/update/import/delete
   tags:
     project: "test"

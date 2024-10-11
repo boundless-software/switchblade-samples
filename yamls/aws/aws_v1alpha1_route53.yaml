@@ -1,26 +1,24 @@
 apiVersion: aws.boundless.software/v1alpha1
 kind: Route53
 metadata:
-  name: route53-sample
-  # annotations:
-    # route53.aws.boundless.software/import.zone.id: Z08871932CFCH4D0EBRYW
+  name: example-route53
 spec:
   provider:
     region: us-east-1
   zone:
-    name: test.what.com
+    name: example.com
   records:
-    kurt3.kurtzone31.com:
+    a.example.com:
       type: A
       ttl: 200
       weight: 3
       records:
         - 192.0.0.235
-    # cname.kurtzone31.com:
+    # cname.example.com:
     #   type: CNAME
     #   ttl: 200
     #   ipBasedRecord:
     #     id: 42c5b4ac-3740-6881-0753-2a6aba201392
     #     location: home
     #   records:
-    #     - kurt4.kurtzone31.com
+    #     - b.example.com
