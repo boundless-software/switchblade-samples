@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Azure Kubernetes YAMLs
+permalink: /azure
 ---
 
 # Azure Kubernetes YAML Files

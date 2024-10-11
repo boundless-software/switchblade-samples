@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Stacks Kubernetes YAMLs
+permalink: /stacks
 ---
 
 # Stacks Kubernetes YAML Files

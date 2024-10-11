@@ -1,6 +1,7 @@
 ---
 layout: default
 title: AWS Kubernetes YAMLs
+permalink: /aws
 ---
 
 # AWS Kubernetes YAML Files
