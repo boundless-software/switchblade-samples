@@ -1,8 +1,6 @@
 title: "Switchblade YAML Samples"
 description: "A collection of Switchblade YAML files for AWS, Azure, Helm, Stacks, and WordPress deployments."
 remote_theme: pages-themes/hacker@v0.2.0
-plugins:
-- jekyll-remote-theme # add this line to the plugins list if you already have one
 logo: /assets/images/logo.png
 
 # Optional, but recommended
@@ -23,3 +21,4 @@ permalink: pretty  # This makes URLs cleaner (removes `.html` extensions)
 # Optional: Enable plugins (if you want to use any)
 plugins:
   - jekyll-seo-tag  # This improves SEO for your site
+- jekyll-remote-theme # add this line to the plugins list if you already have one
