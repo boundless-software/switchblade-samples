@@ -1,3 +1,9 @@
+---
+layout: default
+title: Readme
+permalink: /README/
+---
+
 # switchblade-samples
 # Welcome to Switchblade!
 
