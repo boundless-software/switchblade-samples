@@ -1,3 +1,22 @@
 title: "Switchblade YAML Samples"
 description: "A collection of Switchblade YAML files for AWS, Azure, Helm, Stacks, and WordPress deployments."
 theme: minima
+
+# Optional, but recommended
+url: "https://switchblade-samples.boundless.software"
+baseurl: ""  # Leave blank if your site is at the root of the domain
+
+# Optional: Social links or GitHub repository info
+github_username: "boundless-software"
+repository: "switchblade-samples"
+
+# Optional: Markdown options
+markdown: kramdown
+highlighter: rouge
+
+# Optional: Permalinks (if you want custom URLs)
+permalink: pretty  # This makes URLs cleaner (removes `.html` extensions)
+
+# Optional: Enable plugins (if you want to use any)
+plugins:
+  - jekyll-seo-tag  # This improves SEO for your site
