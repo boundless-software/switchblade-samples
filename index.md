@@ -7,8 +7,8 @@ title: Home
 
 Welcome to the Kubernetes YAML sample collection! Below are the categories available. Click on each to explore sample configurations and documentation.
 
-- [AWS Kubernetes YAMLs](./_pages/aws.md)
-- [Azure Kubernetes YAMLs](./_pages/azure.md)
-- [Helm Kubernetes YAMLs](./_pages/helm.md)
-- [Stacks Kubernetes YAMLs](./_pages/stacks)
-- [WordPress Kubernetes YAMLs](./_pages/wordpress)
+- [AWS Kubernetes YAMLs](./aws/)
+- [Azure Kubernetes YAMLs](./azure)
+- [Helm Kubernetes YAMLs](./helm)
+- [Stacks Kubernetes YAMLs](./stacks)
+- [WordPress Kubernetes YAMLs](./wordpress)
