@@ -7,4 +7,4 @@ spec:
   region: us-east-1
  bucket:
   bucketName: example-bucket
-  # encryptionKeyARN: arn:aws:kms:us-east-1:818674127672:alias/workload
+  # encryptionKeyARN: arn:aws:kms:<region>:<accountid>:alias/workload
