@@ -1,7 +1,7 @@
 ---
 layout: default
 title: WordPress Kubernetes YAMLs
-permalink: /wordpress
+permalink: /wordpress/
 ---
 
 # WordPress Kubernetes YAML Files

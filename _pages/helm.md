@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Helm Kubernetes YAMLs
-permalink: /helm
+permalink: /helm/
 ---
 
 # Helm Kubernetes YAML Files
