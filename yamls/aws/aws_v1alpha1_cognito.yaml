@@ -1,9 +1,0 @@
-apiVersion: aws.boundless.software/v1alpha1
-kind: Cognito
-metadata:
-  labels:
-    app.kubernetes.io/name: switchblade
-    app.kubernetes.io/managed-by: kustomize
-  name: cognito-sample
-spec:
-  # TODO(user): Add fields here
