@@ -1,0 +1,78 @@
+apiVersion: aws.boundless.software/v1alpha1
+kind: Iam
+metadata:
+  name: create-demo
+spec:
+  provider:
+    region: us-east-1
+  role:
+    name: create-demo
+    policy:
+      name: test
+      Statement:
+        - Action:
+            - iam:GetAccountPasswordPolicy
+            - iam:ListVirtualMFADevices
+          Effect: Allow
+          Resource:
+            - "*"
+    policyArns:
+      - arn:aws:iam::aws:policy/AdministratorAccess
+    trustPolicy:
+      Statement:
+        - Action:
+            - sts:AssumeRole
+          Effect: Allow
+          Principal:
+            Service: "s3.amazonaws.com"
+
+
+
+
+
+
+
+  # user:
+  #   name: switchuser
+  #   policy:
+  #     name: test
+  #     Statement:
+  #       - Action:
+  #           - events:*
+  #         Effect: Allow
+  #         Resource:
+  #           - "*"
+  #   policyArns:
+  #     - arn:aws:iam::aws:policy/AdministratorAccess
+
+  # oidcProvider:
+  #   url: https://oidc.eks.us-east-1.amazonaws.com/id/44680B20B530165843E6F853F34F9762
+  #   clientIdList:
+  #     - "sts.amazonaws.com"
+  #   thumbprintList:
+  #     - 9e99a48a9960b14926bb7f3b02e22da2b0ab7280
+  # policy:
+  #   name: switchblade-test
+  #   Statement:
+  #     - Action:
+  #         - s3:*
+  #       Effect: Allow
+  #       Resource: "*"
+
+
+  # userGroup:
+  #   name: switchgroup
+  #   users:
+  #     - switchuser
+  #   policyArns:
+  #     # - arn:aws:iam::aws:policy/AdministratorAccess
+  #     - arn:aws:iam::aws:policy/AmazonGlacierReadOnlyAccess
+  #   policy:
+  #     name: test
+  #     Statement:
+  #       - Action:
+  #           - iam:GetAccountPasswordPolicy
+  #           - iam:ListVirtualMFADevices
+  #         Effect: Allow
+  #         Resource:
+  #           - "*"

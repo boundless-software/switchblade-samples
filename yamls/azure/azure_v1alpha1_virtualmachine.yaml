@@ -1,0 +1,31 @@
+apiVersion: azure.boundless.software/v1alpha1
+kind: VirtualMachine
+metadata:
+  name: virtualmachine-sample
+spec:
+  provider:
+    region: eastus
+  resourceGroup: resourcegroup-sample
+  networkingSpec:
+    subnetId: "/subscriptions/3a3e164e-3997-4c74-b196-36dd175ac4cc/resourceGroups/resourcegroup-sample/providers/Microsoft.Network/virtualNetworks/resourcegroup-sample-vnet/subnets/default"
+    createPublicIP: true
+  availabilityZone: 1
+  vmImageSpec:
+    publisher: MicrosoftWindowsServer
+    offer: WindowssServer
+    sku: 2019-Datacenter
+    version: latest
+  osProfileSpec:
+    adminUsername: azureuser
+    adminPassword: "Password123!"
+  hardwareSpec:
+    vmSize: Standard_B1s
+  diskSpec:
+    osDiskSize: 127
+    dataDisks:
+      disk1:
+        size: 100
+        caching: "ReadOnly"
+      disk2:
+        size: 150
+        caching: ReadWrite

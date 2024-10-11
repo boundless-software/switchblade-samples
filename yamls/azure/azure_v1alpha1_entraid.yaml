@@ -1,0 +1,18 @@
+apiVersion: azure.boundless.software/v1alpha1
+kind: EntraID
+metadata:
+  name: entraid-sample
+spec:
+  provider:
+    region: eastus
+  user:
+    displayName: "Test User"
+    mailNickname: "TestUser"
+    passwordProfile:
+      password: "Password123!"
+  group:
+    displayName: "TestGroup"
+    mailNickname: "TestGroup"
+    groupType: "Microsoft 365"
+  enterpriseApplication:
+    displayName: "TestApp"

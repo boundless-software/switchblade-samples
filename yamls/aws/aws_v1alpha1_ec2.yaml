@@ -1,0 +1,97 @@
+apiVersion: aws.boundless.software/v1alpha1
+kind: Ec2
+metadata:
+  labels:
+    app.kubernetes.io/name: ec2
+    app.kubernetes.io/instance: ec2-sample
+    app.kubernetes.io/part-of: switchblade
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/created-by: switchblade
+  name: ec2-sample
+  # annotations:
+  #   ec2.aws.boundless.software/import.loadbalancer.arn: "arn:aws:elasticloadbalancing:us-east-1:818674127672:loadbalancer/app/example-load-balancer/9c987d85964d5588"
+  #   ec2.aws.boundless.software/import.targetgroup.id: "example-target-group2"
+  #   ec2.aws.boundless.software/import.securitygroup.id: "sg-0b1b12dfcfa9349ee"
+  #   ec2.aws.boundless.software/import.instance.id: "i-0b751d9fda102dc32"
+
+spec:
+  provider:
+    region: us-east-1
+  # securityGroup:
+  #   name: group222
+  #   vpcId: vpc-0af6dca97ac881d3a
+  #   tags:
+  #     tag: tag
+  #     tag2: wwwee
+  #   egress:
+  #     - fromPort: 30
+  #       protocol: All
+  #       toPort: 40
+  #       cidrBlocks:
+  #         - 10.0.0.0/16
+  #   ingress:
+  #     - fromPort: 60
+  #       toPort: 80
+  #       protocol: TCP
+  #       cidrBlocks:
+  #         - 0.0.0.0/16
+  instance:
+    imageId: ami-0889a44b331db0194
+    # instanceProfileArn: arn:aws:iam::153743130237:instance-profile/profile
+    instanceType: t3.medium
+    keyName: boundless
+    securityGroupIds:
+      - sg-0b79d8f04392685b1
+      - sg-0b5c5f55df36fe031
+    subnetId: subnet-074934a8420fbae54
+    tags:
+      Project: MyProject
+      userData: ddd
+      test: sss
+      tagg: sdsd
+      yeaah: boiii
+    volumes:
+      - deviceName: /dev/sda1
+        volumeSize: 200
+        volumeId: vol-0e47a6a740b5fef5d
+        volumeType: gp2
+        deleteOnTermination: true
+  # loadBalancer:
+  #   name: "example-load-balancer222"
+  #   scheme: "internet-facing"
+  #   type: "application"
+  #   instanceId: i-0a7f6bf3834d3a200
+  #   subnets:
+  #     - subnet-074934a8420fbae54
+  #     - subnet-08b3e56bd0402bdbb
+  #     # - subnet-074934a8420fbae54
+  #   securityGroups:
+  #     - sg-0b79d8f04392685b1
+  #     - sg-0e8853e4e5c0cbfab
+  #   tags:
+  #     tagKey1: "tagValue1"
+  #     tagKey2: "tagValue2"
+  #     tag 2: "tagValue2"
+  #     tag 3: "tagValue3"
+  #     tag 4: "tagValue4"
+  # targetGroup:
+  #   name: "example-target-group2222"
+  #   port: 80
+  #   tags:
+  #     tagKey1: "tagValue1"
+  #     # tagKey2: "tagValue2"
+  #     # tag 2: "tagValue2"
+  #     # tag 3: "tagValue3"
+  #     # tag 4: "tagValue4"
+  #   protocol: "HTTP"
+  #   vpcId: vpc-0af6dca97ac881d3a
+  #   targetType: "instance"
+  #   healthCheck:
+  #     protocol: "HTTP"
+  #     port: "traffic-port"
+  #     path: "/"
+  #     intervalSeconds: 30
+  #     timeoutSeconds: 5
+  #     healthyThreshold: 5
+  #     unhealthyThreshold: 2
+  #     successCodes: "200-299"

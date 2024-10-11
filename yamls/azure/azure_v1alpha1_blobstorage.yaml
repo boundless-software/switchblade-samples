@@ -1,0 +1,17 @@
+apiVersion: azure.boundless.software/v1alpha1
+kind: BlobStorage
+metadata:
+  name: switchbladedemo
+spec:
+  provider:
+    region: eastus
+  resourceGroup: resourcegroup-sample
+  storageAccountType: BlobStorage
+  redundancy: Standard_GRS
+  containers:
+    container1:
+      publiclyAccessible: false
+  networkSettings:
+    routingPreference: MicrosoftNetworkRouting
+    privateAccessOnly: false
+

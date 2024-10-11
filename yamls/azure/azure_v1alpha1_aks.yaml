@@ -1,0 +1,97 @@
+apiVersion: azure.boundless.software/v1alpha1
+kind: Aks
+metadata:
+  labels:
+    app.kubernetes.io/name: aks
+    app.kubernetes.io/instance: aks-sample
+    app.kubernetes.io/part-of: switchblade
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/created-by: switchblade
+  name: aks-sample
+spec:
+  provider:
+    region: "eastus"
+  name: "aks-sample"
+  resourceGroupName: "akhil-resourcegroup-sample"
+  tags:
+    project: "example-project"
+    department: "engineering"
+  sku:
+    name: "Basic"
+    tier: "Free"
+  identity:
+    type: "UserAssigned"
+    userAssignedIdentities:
+     - "/subscriptions/3a3e164e-3997-4c74-b196-36dd175ac4cc/resourcegroups/akhil-resourcegroup-sample/providers/Microsoft.ManagedIdentity/userAssignedIdentities/test"
+  properties:
+    kubernetesVersion: "1.27.9"
+    autoUpgradeProfile:
+      upgradeChannel: "Patch"
+    # addonProfiles:
+    #   httpApplicationRouting:
+    #     enabled: true
+    #     config:
+    #       HTTPApplicationRoutingZoneName: "examphle.com"
+    # diskEncryptionSetID: "disk-encryption-set-id"
+    apiServerAccessProfile:
+      enablePrivateCluster: true
+    publicNetworkAccess: Enabled
+    networkProfile:
+      networkPlugin: "Kubenet"
+      networkPolicy: "Calico"
+    dnsPrefix: "aks"
+    enableRBAC: true
+    defaultAgentPool:
+      osSKU: "Ubuntu"
+      osType: "Linux"
+      availabilityZones:
+        - "1"
+      vmSize: "Standard_B2s"
+      count: 1
+      scaleSetPriority: "Regular"
+      scaleSetEvictionPolicy: "Delete"
+      vnetSubnetID: "/subscriptions/3a3e164e-3997-4c74-b196-36dd175ac4cc/resourceGroups/akhil-resourcegroup-sample/providers/Microsoft.Network/virtualNetworks/samplevnet/subnets/isolatedsubnet1"
+      spotMaxPrice: -1
+      maxPods: 30
+      enableNodePublicIP: false
+      nodeLabels:
+        environment: "production"
+    servicePrincipalProfile:
+      clientId: "bde4bc99-b218-463d-ac58-6754582a2d92"
+      secret: "T8P8Q~Xx4s~1abvlrgpXv2L3EY7dD34rgFpPKbbI"
+    # aadProfile:
+    #   managed: true
+    #   enableAzureRBAC: true
+    #   # adminGroupObjectIDs:
+    #   #   - "your-admin-group-object-id-here"
+    #   # clientAppID: "your-client-app-id-here"
+    #   # serverAppID: "your-server-app-id-here"
+    #   # tenantID: "your-tenant-id-here"
+    #   # serverAppSecret: "your-server-app-secret-here"
+  # agentPoolProfiles:
+  #   - name: "agentpool"
+  #     mode: "User"
+  #     osSKU: "Ubuntu"
+  #     osType: "Linux"
+  #     osDiskSizeGB: 30
+  #     availabilityZones:
+  #       # - "1"
+  #       - "2"
+  #       - "3"
+  #     vmSize: "Standard_B2s"
+  #     vnetSubnetID: "/subscriptions/3a3e164e-3997-4c74-b196-36dd175ac4cc/resourceGroups/akhil-resourcegroup-sample/providers/Microsoft.Network/virtualNetworks/samplevnet/subnets/isolatedsubnet1"
+  #     count: 1
+  #     scaleSetPriority: "Regular"
+  #     scaleSetEvictionPolicy: "Delete"
+  #     spotMaxPrice: -1
+  #     enableAutoScaling: true
+  #     maxCount: 5
+  #     minCount: 1
+  #     maxPods: 33
+  #     enableNodePublicIP: false
+  #     nodeLabels:
+  #       environment: "production"
+  #     nodeTaints:
+  #       - "key=value:NoSchedule"
+  #       - "key2=value12:NoSchedule"
+  #     maxSurge: 23%

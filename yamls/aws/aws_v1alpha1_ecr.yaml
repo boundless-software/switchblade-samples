@@ -1,0 +1,12 @@
+apiVersion: aws.boundless.software/v1alpha1
+kind: Ecr
+metadata:
+  name: erp-next
+spec:
+  provider:
+    region: us-east-1
+  # repository:
+  #   name: erp-next
+  #   tags:
+  #     - latest
+  #     - dev

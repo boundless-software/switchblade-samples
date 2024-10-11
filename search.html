@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Search</title>
+</head>
+<body>
+  <h1>Search YAML Files</h1>
+  <input type="text" id="search-input" placeholder="Search YAML files...">
+  <ul id="results-container"></ul>
+
+  <script src="https://cdn.jsdelivr.net/npm/simple-jekyll-search/dest/simple-jekyll-search.min.js"></script>
+  <script>
+    SimpleJekyllSearch({
+      searchInput: document.getElementById('search-input'),
+      resultsContainer: document.getElementById('results-container'),
+      json: '/search.json'
+    });
+  </script>
+</body>
+</html>

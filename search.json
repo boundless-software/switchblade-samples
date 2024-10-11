@@ -1,0 +1,17 @@
+[
+  {
+    "title": "AWS Cognito YAML",
+    "url": "/yamls/aws/aws_v1alpha1_cognito.yaml",
+    "content": "Kubernetes YAML for AWS Cognito."
+  },
+  {
+    "title": "AWS EC2 YAML",
+    "url": "/yamls/aws/aws_v1alpha1_ec2.yaml",
+    "content": "Kubernetes YAML for AWS EC2."
+  },
+  {
+    "title": "Azure AKS YAML",
+    "url": "/yamls/azure/azure_v1alpha1_aks.yaml",
+    "content": "Kubernetes YAML for Azure AKS."
+  }
+]

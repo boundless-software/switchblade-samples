@@ -1,0 +1,66 @@
+apiVersion: web.boundless.software/v1alpha1
+kind: Wordpress
+metadata:
+  name: wordpress-sample
+  namespace: default
+spec:
+  istio:
+    virtualService:
+      gateways:
+      - istio-system/default-gateway
+      hosts:
+      - wordpress-test.boundless.software
+      http:
+      - destination:
+          host: wordpress-sample.default.svc.cluster.local
+          port:
+            number: 8080
+  wordpress:
+    plugins:
+    - all-in-one-wp-security-and-firewall
+    image:
+      repository: bitnami/wordpress
+      tag: "6.0.2"
+    password: test123!
+    env:
+    - name: WORDPRESS_DB_HOST
+      value: wordpress-sample-db
+    - name: MARIADB_HOST
+      value: wordpress-sample-db
+    - name: MARIADB_PORT_NUMBER
+      value: "3306"
+    - name: WORDPRESS_DATABASE_NAME
+      value: mysql
+    - name: WORDPRESS_DATABASE_USER
+      value: root
+    - name: WORDPRESS_USERNAME
+      value: user
+    - name: WORDPRESS_EMAIL
+      value: user@example.com
+    - name: WORDPRESS_FIRST_NAME
+      value: FirstName
+    - name: WORDPRESS_LAST_NAME
+      value: LastName
+    - name: WORDPRESS_HTACCESS_OVERRIDE_NONE
+      value: "no"
+    - name: WORDPRESS_ENABLE_HTACCESS_PERSISTENCE
+      value: "no"
+    - name: APACHE_HTTP_PORT_NUMBER
+      value: "8080"
+    - name: WORDPRESS_PASSWORD
+      valueFrom:
+        secretKeyRef:
+          name: wordpress-sample
+          key: password
+    - name: APACHE_HTTPS_PORT_NUMBER
+      value: "8443"
+    - name: WORDPRESS_DATABASE_PASSWORD
+      valueFrom:
+        secretKeyRef:
+          name: wordpress-sample
+          key: password
+  database:
+    type: mysql
+    storage:
+      capacity: 10Gi
+      storageclassname: local-path

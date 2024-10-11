@@ -1,0 +1,13 @@
+apiVersion: azure.boundless.software/v1alpha1
+kind: ManagedIdentities
+metadata:
+  name: managedidentities-sample
+  # annotations:
+  #   managedidentities.azure.boundless.software/import.name: "kurtsample"
+spec:
+  provider:
+    region: "eastus"
+  resourceGroup: resourcegroup-sample
+  # tags:
+  #   key: "environment"
+    # value: "dev"

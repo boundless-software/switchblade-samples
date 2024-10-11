@@ -1,0 +1,46 @@
+apiVersion: aws.boundless.software/v1alpha1
+kind: Eks
+metadata:
+  name: workload
+spec:
+  provider:
+    region: us-east-1
+  cluster:
+    endpoint:
+      public: true
+      private: true
+    logTypes:
+      - scheduler
+    subnetIds:
+      - subnet-00b316504ca73dcc0
+      - subnet-0e2a96996f31c50f1
+      - subnet-0ca4f9f7eeee54a5d
+      - subnet-07a8bc50f5efb7409
+      - subnet-0a0986263559705ee
+      - subnet-0ab73d9ca032e8acb
+    version: "1.30"
+    nodeGroups:
+      critical:
+        amiType: BOTTLEROCKET_x86_64
+        capacityType: ON_DEMAND
+        diskSize: 50
+        instanceTypes:
+          - c5.xlarge
+        labels:
+          nodegroup: critical
+        taints:
+          - effect: NO_SCHEDULE
+            key: nodeType
+            value: critical
+        tags:
+          karpenter.sh/discovery: workload
+        scalingConfig:
+          desiredSize: 1
+          maxSize: 2
+          minSize: 1
+        subnets:
+          - subnet-00b316504ca73dcc0
+          - subnet-0e2a96996f31c50f1
+          - subnet-0ab73d9ca032e8acb
+        version: "1.30"
+

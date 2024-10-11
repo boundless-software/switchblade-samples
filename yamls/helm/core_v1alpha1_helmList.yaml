@@ -1,0 +1,84 @@
+apiVersion: core.boundless.software/v1alpha1
+kind: HelmList
+items:
+- metadata:
+    name: mysql
+    namespace: default
+  spec:
+    repo: https://charts.bitnami.com/bitnami
+    chart: mysql
+    version: 9.3.4
+    values:
+      auth:
+        database: wordpress
+        username: wordpress
+        password: wordpress
+- metadata:
+    name: wordpress
+    namespace: default
+  spec:
+    repo: https://charts.bitnami.com/bitnami
+    chart: wordpress
+    istio:
+      virtualService:
+        gateways:
+        - istio-system/default-gateway
+        hosts:
+        - workstation-romil.boundless.software
+        http:
+        - destination:
+            host: wordpress.default.svc.cluster.local
+            port:
+              number: 80
+    version: 15.2.5
+    values:
+      wordpressUsername: admin
+      wordpressPassword: wordpress
+      wordpressEmail: "sales@boundless.software"
+      wordpressFirstName: Switchblade
+      wordpressLastName: Operator
+      wordpressBlogName: Switchblade
+      serviceAccount:
+        create: true
+        name: wordpress
+      mariadb:
+        enabled: false
+      externalDatabase:
+        host: mysql.default.svc.cluster.local
+        user: wordpress
+        password: wordpress
+        database: wordpress
+      service:
+        type: ClusterIP
+      wordpressExtraConfigContent: |
+        $scheme = 'http://';
+        if ( 'on' === $_SERVER['HTTPS'] ) {
+          $scheme = 'https://';
+        }
+
+        if ( ! defined( 'WP_HOME' ) ) {
+          define( 'WP_HOME', rtrim( getenv( 'WP_HOME' ) ?: $scheme . $_SERVER['HTTP_HOST'], '/' ) );
+        }
+
+        if ( ! defined( 'WP_SITEURL' ) ) {
+          define( 'WP_SITEURL', rtrim( getenv( 'WP_SITEURL' ), '/' ) ?: WP_HOME . '/wp' );
+        }
+        unset( $scheme );
+
+        if ( ! defined( 'AUTOMATIC_UPDATER_DISABLED' ) ) {
+          define( 'AUTOMATIC_UPDATER_DISABLED', true );
+        }
+
+        if ( ! defined( 'DISABLE_WP_CRON' ) ) {
+          define( 'DISABLE_WP_CRON', getenv( 'DISABLE_WP_CRON' ) ?: false );
+        }
+
+        if ( ! defined( 'DISALLOW_FILE_EDIT' ) ) {
+          // Disable the plugin and theme file editor in the admin
+          define( 'DISALLOW_FILE_EDIT', "true" === strtolower( getenv( 'DISALLOW_FILE_EDIT' ) ?: "true" ) );
+        }
+
+        if ( ! defined( 'DISALLOW_FILE_MODS' ) ) {
+          // Disable plugin and theme updates and installation from the admin
+          define( 'DISALLOW_FILE_MODS', "true" === strtolower( getenv( 'DISALLOW_FILE_MODS' ) ?: "true" ) );
+        }

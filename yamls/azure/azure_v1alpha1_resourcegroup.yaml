@@ -1,0 +1,8 @@
+apiVersion: azure.boundless.software/v1alpha1
+kind: ResourceGroup
+metadata:
+  name: resourcegroup-sample
+spec:
+  provider:
+    region: eastus
+  name: resourcegroup-sample

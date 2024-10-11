@@ -1,0 +1,120 @@
+apiVersion: azure.boundless.software/v1alpha1
+kind: VirtualNetwork
+metadata:
+  name: samplevnet
+spec:
+  provider:
+    region: eastus
+  cidrBlock: "10.1.0.0/16"
+  resourceGroupName: resourcegroup-sample
+  subnets:
+    - name: isolatedsubnet1
+      cidrBlock: "10.1.64.0/24"
+      type: "isolated"
+    - name: isolatedsubnet2
+      cidrBlock: "10.1.96.0/19"
+      type: "isolated"
+    - name: privatesubnet1
+      cidrBlock: "10.1.128.0/24"
+      type: "private"
+  ddosProtectionPlan: disabled
+  # networkInterfaces:
+  #   - name: "nic1"
+  #     ipConfiguration:
+  #       name: "ipconfig1"
+  #       privateIPAllocationMethod: "Dynamic"
+  #       privateIPAddressVersion: "IPv4"
+  #       subnetId: "/subscriptions/0703ce9a-8f45-4a4d-a7aa-ddbb083829f3/resourceGroups/resourcegroup-sample/providers/Microsoft.Network/virtualNetworks/samplevnet/subnets/isolatedsubnet1"
+
+  # peers:
+  #   - name: "peer1"
+  #     allowForwardedTraffic: true
+  #     allowGatewayTransit: false
+  #     allowVirtualNetworkAccess: false
+  #     remoteVirtualNetworkID: "/subscriptions/0703ce9a-8f45-4a4d-a7aa-ddbb083829f3/resourceGroups/resourcegroup-sample/providers/Microsoft.Network/virtualNetworks/dsf"
+  #     remoteAllowForwardedTraffic: false
+  #     remoteAllowGatewayTransit: false
+  #     remoteAllowVirtualNetworkAccess: true
+  #   - name: "peer2"
+  #     allowForwardedTraffic: true
+  #     allowGatewayTransit: false
+  #     allowVirtualNetworkAccess: false
+  #     remoteVirtualNetworkID: "/subscriptions/0703ce9a-8f45-4a4d-a7aa-ddbb083829f3/resourceGroups/resourcegroup-sample/providers/Microsoft.Network/virtualNetworks/test2"
+  #     remoteAllowForwardedTraffic: false
+  #     remoteAllowGatewayTransit: false
+  #     remoteAllowVirtualNetworkAccess: true      
+    #   natGateway:
+    #     zone: "2"
+    #     name: "natgateway1"
+    #   routeTable:
+    #     name: "privateroutetable1"
+    #     routes:
+          # - destination: 192.163.1.0/24 
+          # - destination:  0.0.0.0/24
+          # - destination:  1.1.1.0/24
+          # - destination: 1.2.2.0/24
+    # - name: privatesubnet2
+    #   cidrBlock: "10.1.160.0/24"
+    #   type: "private"
+    #   natGateway:
+    #     zone: "2"
+    #     name: "natgateway1"
+    # - name: privatesubnet3
+    #   cidrBlock: "10.1.168.0/24"
+    #   type: "private"
+    #   natGateway:
+    #     zone: "2"
+    #     name: "natgateway4"        
+      # routeTable:
+      #   name: "privateroutetable2"
+      #   routes:
+      #     - destination: 192.163.1.0/24 
+  # networkSecurityGroup:
+  #   - name: "example-nsg"
+  #     subnets:
+  #       - isolatedsubnet1
+      # securityRules:
+      #   - name: "allow-ssh1-new"
+      #     description: "Allow SSH2"
+      #     destinationAddressPrefix: "*"
+      #     destinationPortRange: "22"
+      #     sourceAddressPrefix: "*"
+      #     sourcePortRange: "*"
+      #     priority: 200
+      #     access: "Allow"
+      #     protocol: "TCP"
+      #     direction: "Outbound"  
+        # - name: "allow-ssh2"
+        #   description: "Allow SSH2"
+        #   destinationAddressPrefix: "*"
+        #   destinationPortRange: "22"
+        #   sourceAddressPrefix: "*"
+        #   sourcePortRange: "*"
+        #   priority: 300
+        #   access: "Allow"
+        #   protocol: "Tcp"
+        #   direction: "Inbound"
+    # - name: "example-nsg2"
+    #   subnets:
+    #     - privatesubnet1
+    #   securityRules:
+    #     - name: "allow-ssh1-new"
+    #       description: "Allow SSH2"
+    #       destinationAddressPrefix: "*"
+    #       destinationPortRange: "22"
+    #       sourceAddressPrefix: "*"
+    #       sourcePortRange: "*"
+    #       priority: 200
+    #       access: "Allow"
+    #       protocol: "TCP"
+    #       direction: "Inbound"
+        # - name: "allow-ssh2"
+        #   description: "Allow SSH2"
+        #   destinationAddressPrefix: "*"
+        #   destinationPortRange: "22"
+        #   sourceAddressPrefix: "*"
+        #   sourcePortRange: "*"
+        #   priority: 130
+        #   access: "Allow"
+        #   protocol: "Tcp"
+        #   direction: "Inbound"

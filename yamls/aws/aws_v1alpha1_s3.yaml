@@ -1,0 +1,10 @@
+apiVersion: aws.boundless.software/v1alpha1
+kind: S3
+metadata:
+ name: bug-test
+spec:
+ provider:
+  region: us-east-1
+ bucket:
+  bucketName: switchblade-bug-test
+  # encryptionKeyARN: arn:aws:kms:us-east-1:818674127672:alias/workload

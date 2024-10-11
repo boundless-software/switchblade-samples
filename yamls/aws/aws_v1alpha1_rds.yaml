@@ -1,0 +1,60 @@
+apiVersion: aws.boundless.software/v1alpha1
+kind: Rds
+metadata:
+  name: rds-sample
+spec:
+  provider:
+    region: us-east-1
+  globalCluster:
+    engine: aurora-mysql
+  clusters:
+    cluster1:
+      provider:
+        region: us-east-2
+      subnetGroup:
+        subnets:
+          - subnet-e431248c
+          - subnet-41eb410d
+          - subnet-059ad97f
+      parameterGroup:
+        parameters:
+          # aurora_disable_hash_join: "1"
+        family: aurora-mysql8.0
+      username: username
+      tags:
+        something: one
+        something: two
+        something: three
+      password: Password123!
+      engine: aurora-mysql
+      backupRetentionPeriod: 5
+      availabilityZones:
+        - us-east-2a
+      # instances:
+      #   instance1:
+      #     class: db.r5.xlarge
+    #     instance3:
+    #       class: db.r5.large
+    # switchCluster2:
+    #   provider:
+    #     region: us-east-1
+    #   subnetGroup:
+    #     subnets:
+    #       - subnet-e0422cde
+    #       - subnet-2a776b25
+    #       - subnet-ea5a7db6
+    #   parameterGroup:
+    #     # parameters:
+    #     #   aurora_disable_hash_join: "0"
+    #     family: aurora-mysql8.0
+    #   username: username
+    #   password: password
+    #   engine: aurora-mysql
+    #   backupRetentionPeriod: 5
+    #   availabilityZones:
+    #     - us-east-1a
+    #   instances:
+    #     instance21:
+    #       class: db.r5.xlarge
+    # instance22:
+    #   class: db.r5.large

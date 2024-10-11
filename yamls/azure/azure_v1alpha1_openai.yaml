@@ -1,0 +1,16 @@
+apiVersion: azure.boundless.software/v1alpha1
+kind: OpenAI
+metadata:
+  name: switchblade-openai
+spec:
+  provider:
+    region: eastus
+  resourceGroup: resourcegroup-sample
+  networking:
+    privateAccessOnly: false
+  deployments:
+    codegen:
+      model: gpt-4o
+      version: "2024-05-13"
+      type: GlobalStandard
+      tokenRateLimit: 450

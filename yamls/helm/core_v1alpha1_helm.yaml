@@ -1,0 +1,15 @@
+apiVersion: core.boundless.software/v1alpha1
+kind: Helm
+metadata:
+  name: mysql
+  namespace: default
+spec:
+  # repo: https://charts.bitnami.com/bitnami
+  localChartPath: ../mysql-9.11.1.tgz
+  chart: mysql
+  version: 9.11.1
+  values:
+    auth:
+      database: wordpress
+      username: wordpress
+      password: wordpress

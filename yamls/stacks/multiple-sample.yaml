@@ -1,0 +1,68 @@
+apiVersion: aws.boundless.software/v1alpha1
+kind: Iam
+metadata:
+  name: import-demo
+  annotations:
+    iam.aws.boundless.software/import.iam.role.arn: arn:aws:iam::818674127672:role/import-demo
+spec:
+  provider:
+    region: us-east-1
+---
+apiVersion: aws.boundless.software/v1alpha1
+kind: S3
+metadata:
+  name: import-demo
+  annotations:
+    s3.aws.boundless.software/import.arn: arn:aws:s3:::import-demo-switchblade
+spec:
+  provider:
+    region: us-east-1
+  bucket:
+    bucketName: import-demo-switchblade
+---
+apiVersion: aws.boundless.software/v1alpha1
+kind: Kms
+metadata:
+  name: import-demo
+  annotations:
+    kms.aws.boundless.software/import.kms.id: mrk-98c8bdcbcc80433e99f15c60d3b6f7bd
+spec:
+  provider:
+    region: us-east-1
+---
+apiVersion: aws.boundless.software/v1alpha1
+kind: Vpc
+metadata:
+  name: import-demo
+  annotations:
+    vpc.aws.boundless.software/import.vpc.id: vpc-0be5240e81ad13e64
+    vpc.aws.boundless.software/import.subnets.id: subnet-0d7520833372b1ef4,subnet-02f53f9faba3186d2,subnet-0dc4de4ac6c2adc78,subnet-08002d4355e0cd5e0
+    vpc.aws.boundless.software/import.natgateway.id: nat-0355d5f4c9575c1fd
+    vpc.aws.boundless.software/import.igw.id: igw-0c999ff39b80c4030
+    vpc.aws.boundless.software/import.routetables.public: rtb-07469486e5194c0b1
+    vpc.aws.boundless.software/import.routetables.private: rtb-05d459fae04631820
+    vpc.aws.boundless.software/import.vpc.endpoint.id: vpce-03934c2c986ed7b7a
+spec:
+  provider:
+    region: us-east-1
+  cidrBlock: "10.0.0.0/16"
+  endpoints:
+    endpoint1:
+      service: "com.amazonaws.us-east-1.s3"
+      type: Gateway
+  natGateway:
+    zones:
+      - us-east-1b
+  subnets:
+    - zone: us-east-1a
+      cidrBlock: "10.0.0.0/24"
+      type: public
+    - zone: us-east-1b
+      cidrBlock: "10.0.10.0/24"
+      type: public
+    - zone: us-east-1a
+      cidrBlock: "10.0.20.0/24"
+      type: private
+    - zone: us-east-1b
+      cidrBlock: "10.0.30.0/24"
+      type: private
