@@ -1,12 +1,12 @@
 ---
 layout: default
-title: AWS Kubernetes YAMLs
+title: AWS Switchblade YAMLs
 permalink: /aws/
 ---
 
-# AWS Kubernetes YAML Files
+# AWS Switchblade YAML Files
 
-Here is a list of Kubernetes YAML files for deploying AWS resources:
+Here is a list of Switchblade YAML files for deploying AWS resources:
 
 - [AWS S3](../yamls/aws/aws_v1alpha1_s3.yaml)
 - [AWS VPC](../yamls/aws/aws_v1alpha1_vpc.yaml)

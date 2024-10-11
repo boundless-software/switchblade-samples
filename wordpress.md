@@ -1,12 +1,12 @@
 ---
 layout: default
-title: WordPress Kubernetes YAMLs
+title: WordPress Switchblade YAMLs
 permalink: /wordpress/
 ---
 
-# WordPress Kubernetes YAML Files
+# WordPress Switchblade YAML Files
 
-Here is a list of Kubernetes YAML files for deploying WordPress resources:
+Here is a list of Switchblade YAML files for deploying WordPress resources:
 
 - [WordPress Deployment](../yamls/wordpress/core_v1alpha1_deployment.yaml)
 - [WordPress StatefulSet](../yamls/wordpress/core_v1alpha1_statefulset.yaml)

@@ -1,12 +1,12 @@
 ---
 layout: default
-title: Azure Kubernetes YAMLs
+title: Azure Switchblade YAMLs
 permalink: /azure/
 ---
 
-# Azure Kubernetes YAML Files
+# Azure Switchblade YAML Files
 
-Here is a list of Kubernetes YAML files for deploying Azure resources:
+Here is a list of Switchblade YAML files for deploying Azure resources:
 
 - [Azure AKS](../yamls/azure/azure_v1alpha1_aks.yaml)
 - [Azure Blob Storage](../yamls/azure/azure_v1alpha1_blobstorage.yaml)

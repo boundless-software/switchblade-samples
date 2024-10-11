@@ -3,12 +3,14 @@ layout: default
 title: Home
 ---
 
-# Kubernetes YAML Sample Collection
+# Switchblade YAML Sample Collection
 
-Welcome to the Kubernetes YAML sample collection! Below are the categories available. Click on each to explore sample configurations and documentation.
+Welcome to the Switchblade YAML sample collection! Below are the categories available. Click on each to explore sample configurations and documentation.
 
-- [AWS Kubernetes YAMLs](./aws/)
-- [Azure Kubernetes YAMLs](./azure/)
-- [Helm Kubernetes YAMLs](./helm/)
-- [Stacks Kubernetes YAMLs](./stacks/)
-- [WordPress Kubernetes YAMLs](./wordpress/)
+- [Readme](./readme/)
+
+- [AWS Switchblade YAMLs](./aws/)
+- [Azure Switchblade YAMLs](./azure/)
+- [Helm Switchblade YAMLs](./helm/)
+- [Stacks Switchblade YAMLs](./stacks/)
+- [WordPress Switchblade YAMLs](./wordpress/)
