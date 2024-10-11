@@ -1,6 +1,7 @@
 title: "Switchblade YAML Samples"
 description: "A collection of Switchblade YAML files for AWS, Azure, Helm, Stacks, and WordPress deployments."
 theme: hacker
+logo: /assets/images/logo.png
 
 # Optional, but recommended
 url: "https://switchblade-samples.boundless.software"
